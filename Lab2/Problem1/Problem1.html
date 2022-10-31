@@ -12,7 +12,7 @@
       Please enter your contact details
         <div id="content">
            
-           <input type="text" id = "n_input" placeholder="Name" maxlength="20" autofocus>
+           <input type="text" id = "n_input" placeholder="Name" maxlength="20" autofocus oninput="this.value = this.value.replace(/[^a-z, ^A-Z]/, '')" />
            <input type="text" id = "m_input" placeholder="Mobile" onkeypress="return numbercheck(event)" maxlength = "10">
            <input type="email" id = "e_input" placeholder="Email" maxlength="39">
            <button id = "submit">Add Contact</button>
@@ -44,7 +44,10 @@
          </table>
          
     </div>
-    <div id = "noResult"></div>
+    <div id = "noResult">
+      <b>NO RESULT FOUND</b>
+
+    </div>
 </body>
 <script src="script1.js"></script>
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>

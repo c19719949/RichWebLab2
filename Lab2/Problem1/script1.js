@@ -10,6 +10,8 @@ error1 = document.querySelector("#error1");
 error1.style.display = "none";
 error2 = document.querySelector("#error2");
 error2.style.display = "none";
+noresult = document.querySelector("#noResult");
+noresult.style.display = "none";
 const display = document.querySelector("#contact_table");
 
 
@@ -18,16 +20,26 @@ const contacts = JSON.parse(localStorage.getItem("contacts") || "[]");
 displayContacts();
 
 function filter()
-{
+{  
+    var check = false
     for(i = 1; i< tr.length; i++)
     {
+        
         td = tr[i].getElementsByTagName("td")[1];
         val = td.textContext || td.innerText;
         if (val.indexOf(searchBox.value) > -1) {
             tr[i].style.display = "";
-          } else {
+            check = true;
+            noresult.style.display = "none";
+        } 
+        else 
+        {
             tr[i].style.display = "none";
-          }
+        }
+    }
+    if (check == false)
+    {
+        noresult.style.display = "";
     }
 }
 
